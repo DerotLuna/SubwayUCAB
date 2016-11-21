@@ -1,0 +1,6 @@
+C:\Users\Luna\Desktop\ASM\SubwayUCAB\Logic\bin\Logic.dll.config
+C:\Users\Luna\Desktop\ASM\SubwayUCAB\Logic\bin\Logic.dll
+C:\Users\Luna\Desktop\ASM\SubwayUCAB\Logic\bin\Logic.pdb
+C:\Users\Luna\Desktop\ASM\SubwayUCAB\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+C:\Users\Luna\Desktop\ASM\SubwayUCAB\Logic\obj\Debug\Logic.dll
+C:\Users\Luna\Desktop\ASM\SubwayUCAB\Logic\obj\Debug\Logic.pdb
