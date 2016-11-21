@@ -12,6 +12,7 @@ namespace SubwaySite
     {
         private WebServiceLogic logic = new WebServiceLogic();
         private List<Line> subway;
+        ServiceReferenceLogic.WebServiceLogicSoapClient service_Logic = new ServiceReferenceLogic.WebServiceLogicSoapClient();
 
         protected override void OnInit(EventArgs e)
         {
@@ -27,7 +28,7 @@ namespace SubwaySite
                 clean();
                 //logic = new WebService1();
                 loadAll();
-                subway = logic.getSubway();
+               // subway = logic.getSubway();
 
                 //if (subway == null) System.Diagnostics.Debug.WriteLine("Nulllllllllllllllllllllllllll");
 

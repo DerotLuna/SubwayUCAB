@@ -40,6 +40,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -58,6 +60,43 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Service References\ServiceReferenceLogic\SubwaySite.ServiceReferenceLogic.closeLineResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReferenceLogic\SubwaySite.ServiceReferenceLogic.closeStationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReferenceLogic\SubwaySite.ServiceReferenceLogic.delete_LineResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReferenceLogic\SubwaySite.ServiceReferenceLogic.delete_StationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReferenceLogic\SubwaySite.ServiceReferenceLogic.getLineResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReferenceLogic\SubwaySite.ServiceReferenceLogic.getStationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReferenceLogic\SubwaySite.ServiceReferenceLogic.getSubwayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReferenceLogic\SubwaySite.ServiceReferenceLogic.Line.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReferenceLogic\SubwaySite.ServiceReferenceLogic.newAdminResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReferenceLogic\SubwaySite.ServiceReferenceLogic.newLineResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReferenceLogic\SubwaySite.ServiceReferenceLogic.newStationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReferenceLogic\SubwaySite.ServiceReferenceLogic.Station.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ServiceReferenceLogic\WebServiceLogic.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -69,6 +108,13 @@
     <Content Include="AdminLoginWeb.aspx" />
     <Content Include="AdminWeb.aspx" />
     <Content Include="Default.aspx" />
+    <None Include="Service References\ServiceReferenceLogic\WebServiceLogic.disco" />
+    <None Include="Service References\ServiceReferenceLogic\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReferenceLogic\configuration.svcinfo" />
+    <None Include="Service References\ServiceReferenceLogic\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="UserWeb.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -95,6 +141,11 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServiceReferenceLogic\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="UserWeb.aspx.cs">
       <DependentUpon>UserWeb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -111,6 +162,9 @@
       <Project>{e89629df-64e4-422c-8e5f-e860c02c0183}</Project>
       <Name>Logic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReferenceLogic\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

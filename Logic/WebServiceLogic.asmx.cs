@@ -16,6 +16,7 @@ namespace Logic
     // [System.Web.Script.Services.ScriptService]
     public class WebServiceLogic : System.Web.Services.WebService
     {
+        ServiceReferenceData.WebServiceDataSoapClient serviceData = new ServiceReferenceData.WebServiceDataSoapClient();
         List<Line> subway = new List<Line>();
         List<Station> stations = new List<Station>();
         List<Admin> administrators = new List<Admin>();
@@ -23,9 +24,11 @@ namespace Logic
         // Empty = null
 
         [WebMethod]
-        public List<Line> getSubway()
+        public List<string> getSubway()
         {
             //pedir lineas en data
+            List<string> subway = new List<string>();
+            subway[0] = "name";
             return subway;
         }
 
@@ -122,7 +125,7 @@ namespace Logic
         public void newAdmin(Admin admin)
         {
             //cargar lista de administradores
-
+            //administrators =
             sbyte counter_Line = 0; bool approved = true;
             while (counter_Line < administrators.Count)
             {

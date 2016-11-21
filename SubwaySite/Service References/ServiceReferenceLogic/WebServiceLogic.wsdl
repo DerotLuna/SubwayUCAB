@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getSubway">
+        <s:complexType />
+      </s:element>
+      <s:element name="getSubwayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSubwayResult" type="tns:ArrayOfLine" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Line" nillable="true" type="tns:Line" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Line">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="operability" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="stations" type="tns:ArrayOfStation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Station" nillable="true" type="tns:Station" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Station">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="stationRight" type="tns:Station" />
+          <s:element minOccurs="0" maxOccurs="1" name="stationLeft" type="tns:Station" />
+          <s:element minOccurs="1" maxOccurs="1" name="operability" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getStation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="station_Search" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="line" type="tns:Line" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStationResult" type="tns:Station" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="line_Search" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLineResult" type="tns:Line" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="closeLine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="line" type="tns:Line" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="closeLineResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="closeStation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="station" type="tns:Station" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="closeStationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="newAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="admin" type="tns:Admin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Admin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="newAdminResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="newStation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="station" type="tns:Station" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="newStationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="newLine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="line" type="tns:Line" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="newLineResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="delete_Line">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="line" type="tns:Line" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delete_LineResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="delete_Station">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="station" type="tns:Station" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delete_StationResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getSubwaySoapIn">
+    <wsdl:part name="parameters" element="tns:getSubway" />
+  </wsdl:message>
+  <wsdl:message name="getSubwaySoapOut">
+    <wsdl:part name="parameters" element="tns:getSubwayResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStationSoapIn">
+    <wsdl:part name="parameters" element="tns:getStation" />
+  </wsdl:message>
+  <wsdl:message name="getStationSoapOut">
+    <wsdl:part name="parameters" element="tns:getStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLineSoapIn">
+    <wsdl:part name="parameters" element="tns:getLine" />
+  </wsdl:message>
+  <wsdl:message name="getLineSoapOut">
+    <wsdl:part name="parameters" element="tns:getLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="closeLineSoapIn">
+    <wsdl:part name="parameters" element="tns:closeLine" />
+  </wsdl:message>
+  <wsdl:message name="closeLineSoapOut">
+    <wsdl:part name="parameters" element="tns:closeLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="closeStationSoapIn">
+    <wsdl:part name="parameters" element="tns:closeStation" />
+  </wsdl:message>
+  <wsdl:message name="closeStationSoapOut">
+    <wsdl:part name="parameters" element="tns:closeStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="newAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:newAdmin" />
+  </wsdl:message>
+  <wsdl:message name="newAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:newAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="newStationSoapIn">
+    <wsdl:part name="parameters" element="tns:newStation" />
+  </wsdl:message>
+  <wsdl:message name="newStationSoapOut">
+    <wsdl:part name="parameters" element="tns:newStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="newLineSoapIn">
+    <wsdl:part name="parameters" element="tns:newLine" />
+  </wsdl:message>
+  <wsdl:message name="newLineSoapOut">
+    <wsdl:part name="parameters" element="tns:newLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="delete_LineSoapIn">
+    <wsdl:part name="parameters" element="tns:delete_Line" />
+  </wsdl:message>
+  <wsdl:message name="delete_LineSoapOut">
+    <wsdl:part name="parameters" element="tns:delete_LineResponse" />
+  </wsdl:message>
+  <wsdl:message name="delete_StationSoapIn">
+    <wsdl:part name="parameters" element="tns:delete_Station" />
+  </wsdl:message>
+  <wsdl:message name="delete_StationSoapOut">
+    <wsdl:part name="parameters" element="tns:delete_StationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceLogicSoap">
+    <wsdl:operation name="getSubway">
+      <wsdl:input message="tns:getSubwaySoapIn" />
+      <wsdl:output message="tns:getSubwaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStation">
+      <wsdl:input message="tns:getStationSoapIn" />
+      <wsdl:output message="tns:getStationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLine">
+      <wsdl:input message="tns:getLineSoapIn" />
+      <wsdl:output message="tns:getLineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="closeLine">
+      <wsdl:input message="tns:closeLineSoapIn" />
+      <wsdl:output message="tns:closeLineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="closeStation">
+      <wsdl:input message="tns:closeStationSoapIn" />
+      <wsdl:output message="tns:closeStationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="newAdmin">
+      <wsdl:input message="tns:newAdminSoapIn" />
+      <wsdl:output message="tns:newAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="newStation">
+      <wsdl:input message="tns:newStationSoapIn" />
+      <wsdl:output message="tns:newStationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="newLine">
+      <wsdl:input message="tns:newLineSoapIn" />
+      <wsdl:output message="tns:newLineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="delete_Line">
+      <wsdl:input message="tns:delete_LineSoapIn" />
+      <wsdl:output message="tns:delete_LineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="delete_Station">
+      <wsdl:input message="tns:delete_StationSoapIn" />
+      <wsdl:output message="tns:delete_StationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceLogicSoap" type="tns:WebServiceLogicSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getSubway">
+      <soap:operation soapAction="http://tempuri.org/getSubway" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStation">
+      <soap:operation soapAction="http://tempuri.org/getStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLine">
+      <soap:operation soapAction="http://tempuri.org/getLine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="closeLine">
+      <soap:operation soapAction="http://tempuri.org/closeLine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="closeStation">
+      <soap:operation soapAction="http://tempuri.org/closeStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newAdmin">
+      <soap:operation soapAction="http://tempuri.org/newAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newStation">
+      <soap:operation soapAction="http://tempuri.org/newStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newLine">
+      <soap:operation soapAction="http://tempuri.org/newLine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_Line">
+      <soap:operation soapAction="http://tempuri.org/delete_Line" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_Station">
+      <soap:operation soapAction="http://tempuri.org/delete_Station" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceLogicSoap12" type="tns:WebServiceLogicSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getSubway">
+      <soap12:operation soapAction="http://tempuri.org/getSubway" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStation">
+      <soap12:operation soapAction="http://tempuri.org/getStation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLine">
+      <soap12:operation soapAction="http://tempuri.org/getLine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="closeLine">
+      <soap12:operation soapAction="http://tempuri.org/closeLine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="closeStation">
+      <soap12:operation soapAction="http://tempuri.org/closeStation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newAdmin">
+      <soap12:operation soapAction="http://tempuri.org/newAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newStation">
+      <soap12:operation soapAction="http://tempuri.org/newStation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newLine">
+      <soap12:operation soapAction="http://tempuri.org/newLine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_Line">
+      <soap12:operation soapAction="http://tempuri.org/delete_Line" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_Station">
+      <soap12:operation soapAction="http://tempuri.org/delete_Station" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceLogic">
+    <wsdl:port name="WebServiceLogicSoap" binding="tns:WebServiceLogicSoap">
+      <soap:address location="http://localhost:63145/WebServiceLogic.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceLogicSoap12" binding="tns:WebServiceLogicSoap12">
+      <soap12:address location="http://localhost:63145/WebServiceLogic.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

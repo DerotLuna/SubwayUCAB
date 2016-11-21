@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="add">
+        <s:complexType />
+      </s:element>
+      <s:element name="addResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Searching_For_All_Users">
+        <s:complexType />
+      </s:element>
+      <s:element name="Searching_For_All_UsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Searching_For_All_UsersResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="create">
+        <s:complexType />
+      </s:element>
+      <s:element name="createResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="addSoapIn">
+    <wsdl:part name="parameters" element="tns:add" />
+  </wsdl:message>
+  <wsdl:message name="addSoapOut">
+    <wsdl:part name="parameters" element="tns:addResponse" />
+  </wsdl:message>
+  <wsdl:message name="Searching_For_All_UsersSoapIn">
+    <wsdl:part name="parameters" element="tns:Searching_For_All_Users" />
+  </wsdl:message>
+  <wsdl:message name="Searching_For_All_UsersSoapOut">
+    <wsdl:part name="parameters" element="tns:Searching_For_All_UsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="createSoapIn">
+    <wsdl:part name="parameters" element="tns:create" />
+  </wsdl:message>
+  <wsdl:message name="createSoapOut">
+    <wsdl:part name="parameters" element="tns:createResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceDataSoap">
+    <wsdl:operation name="add">
+      <wsdl:input message="tns:addSoapIn" />
+      <wsdl:output message="tns:addSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Searching_For_All_Users">
+      <wsdl:input message="tns:Searching_For_All_UsersSoapIn" />
+      <wsdl:output message="tns:Searching_For_All_UsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <wsdl:input message="tns:createSoapIn" />
+      <wsdl:output message="tns:createSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceDataSoap" type="tns:WebServiceDataSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="add">
+      <soap:operation soapAction="http://tempuri.org/add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Searching_For_All_Users">
+      <soap:operation soapAction="http://tempuri.org/Searching_For_All_Users" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <soap:operation soapAction="http://tempuri.org/create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceDataSoap12" type="tns:WebServiceDataSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="add">
+      <soap12:operation soapAction="http://tempuri.org/add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Searching_For_All_Users">
+      <soap12:operation soapAction="http://tempuri.org/Searching_For_All_Users" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <soap12:operation soapAction="http://tempuri.org/create" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceData">
+    <wsdl:port name="WebServiceDataSoap" binding="tns:WebServiceDataSoap">
+      <soap:address location="http://localhost:58769/WebServiceData.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceDataSoap12" binding="tns:WebServiceDataSoap12">
+      <soap12:address location="http://localhost:58769/WebServiceData.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
