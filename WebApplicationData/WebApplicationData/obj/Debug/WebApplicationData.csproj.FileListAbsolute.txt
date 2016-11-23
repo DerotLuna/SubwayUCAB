@@ -1,0 +1,6 @@
+C:\Users\alejandro\Downloads\SubwayUCAB\WebApplicationData\bin\WebApplicationData.dll.config
+C:\Users\alejandro\Downloads\SubwayUCAB\WebApplicationData\bin\WebApplicationData.dll
+C:\Users\alejandro\Downloads\SubwayUCAB\WebApplicationData\bin\WebApplicationData.pdb
+C:\Users\alejandro\Downloads\SubwayUCAB\WebApplicationData\obj\Debug\WebApplicationData.csprojResolveAssemblyReference.cache
+C:\Users\alejandro\Downloads\SubwayUCAB\WebApplicationData\obj\Debug\WebApplicationData.dll
+C:\Users\alejandro\Downloads\SubwayUCAB\WebApplicationData\obj\Debug\WebApplicationData.pdb
