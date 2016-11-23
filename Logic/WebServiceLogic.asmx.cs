@@ -26,7 +26,6 @@ namespace Logic
         [WebMethod]
         public List<Line> getSubway()
         {
-            List<Line> subway_Return = new List<Line>();
             //pedir lineas en data
             /*
             List<string> subway_All = serviceData.getSubwayAll();
@@ -74,19 +73,45 @@ namespace Logic
                 counter_All++;
                 string s_operability = stations_All[counter_All];       //convertir en bool
                 counter_All++;
-                string ID_line = stations_All[counter_All];
+                string ID_Line = stations_All[counter_All];
                 counter_All++;
 
-                Line line = getLine(ID_line);
+                Line line = getLine(ID_Line);
                 bool operability = Convert.ToBoolean(s_operability);        //revisar
                 Station station = new Station(name, ID, operability, line);
                 line.stations.Add(station);
             }
         }
-        /*
-        [WebMethod]
+
+        private void fill_ReferenceStations(List<string> referenceStations_All)
+        {
+            sbyte counter_All = 0;
+            while (counter_All < referenceStations_All.Count)
+            {
+                string ID = referenceStations_All[counter_All];
+                counter_All++;
+                string ID_Right = referenceStations_All[counter_All];
+                counter_All++;
+                string ID_Left = referenceStations_All[counter_All];       //convertir en bool
+                counter_All++;
+                string ID_Line = referenceStations_All[counter_All];
+                counter_All++;
+
+                Line line = getLine(ID_Line);
+                Station station = getStation(ID, line);
+                station.stationRight = getStation(ID_Right, line);
+                station.stationLeft = getStation(ID_Left, line);
+            }
+        }
+
+        
+        [WebMethod] 
         public Station getStation(string station_Search)
         {
+            /* ESTE METODO ES UN CASO ESPECIAL DONDE SOLO SE DEBE USAR.
+             CUANDO NO SE TENGA REFERENCIA DE LA LINEA A LA QUE LA STACION PERTENECE.
+             NO ES EFICIENTE.*/
+            subway = getSubway();
             sbyte counter_Lines = 0;
             Station station_Return = null;
 
@@ -95,9 +120,9 @@ namespace Logic
                 return station_Return;
             }
 
-            while (counter_Lines < lines.Count)
+            while (counter_Lines < subway.Count)
             {
-                stations = lines[counter_Lines].stations;
+                stations = subway[counter_Lines].stations;
 
                 int counter_Stations = 0;
                 while (counter_Stations < stations.Count)
@@ -111,7 +136,7 @@ namespace Logic
                 counter_Lines++;
             }
             return station_Return;
-        } */
+        }
 
         [WebMethod]
         public Station getStation(string station_Search, Line line)
@@ -224,6 +249,16 @@ namespace Logic
 
             stations = station.line.stations;
             int counter = 0; bool approved = true;
+
+            if (station.stationRight.line != station.line)
+            {
+                approved = false; //preguntar a jordan por esta validacion
+            }
+            if (station.stationLeft.line != station.line)
+            {
+                approved = false; //preguntar a jordan por esta validacion
+            }
+
             while (counter < stations.Count)
             {
                 if (station == stations[counter])
@@ -281,33 +316,20 @@ namespace Logic
         [WebMethod]
         public void delete_Line(Line line)
         {
-            line.stations = null;
-            subway.Remove(line);
             //serviceData.deleteLine(Line.ID);
         }
 
         [WebMethod]
         public void delete_Station(Station station)
         {
-            stations = station.line.stations;
-            stations.Remove(station);
             //serviceData.deleteStation(station.ID);
         }
 
-        /*
         [WebMethod]
-        public void create_Xml()
+        public void setShepeLine(string new_Shape)
         {
-            XML_Stations archive = new XML_Stations("Stations");
-            archive.create_XML();
+
         }
 
-        [WebMethod]
-        public void add_Staion(string name, string ID, string line, string operability)
-        {
-            XML_Stations archive = new XML_Stations("Stations");
-            archive.create_Station(name, ID, line, operability);
-        }
-         */
     }
 }
