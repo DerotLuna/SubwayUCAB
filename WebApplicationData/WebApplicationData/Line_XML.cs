@@ -69,7 +69,7 @@ namespace WebApplicationData
             return line;
         }
 
-        public void Delete_Line(String name_Line_Delete)
+        public void Delete_Line(String id_Line_Delete)
         {
             line_Doc.Load(line_Path);
 
@@ -78,7 +78,7 @@ namespace WebApplicationData
 
             foreach (XmlNode nodeToDelete in listLine)
             {
-                if (nodeToDelete.SelectSingleNode("Name").InnerText == name_Line_Delete)
+                if (nodeToDelete.SelectSingleNode("ID").InnerText == id_Line_Delete)
                 {
                     nodeToDelete.SelectSingleNode("Line");
                     XmlNode oldNode = nodeToDelete;
