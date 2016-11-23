@@ -47,6 +47,11 @@ namespace Logic
             set { l_operability = value; }
         }
 
+        public string shape
+        {
+            get { return this.l_shape; }
+        }
+
         public int trains
         {
             get { return this.l_trains; }

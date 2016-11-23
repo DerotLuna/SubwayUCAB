@@ -24,57 +24,68 @@ namespace Logic.ServiceReferenceData {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceData.WebServiceDataSoap")]
     public interface WebServiceDataSoap {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/add", ReplyAction="*")]
-        void add();
+        // CODEGEN: Generating message contract since element name user_Name from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Add_User", ReplyAction="*")]
+        Logic.ServiceReferenceData.Add_UserResponse Add_User(Logic.ServiceReferenceData.Add_UserRequest request);
         
-        // CODEGEN: Generating message contract since element name Searching_For_All_UsersResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Searching_For_All_Users", ReplyAction="*")]
-        Logic.ServiceReferenceData.Searching_For_All_UsersResponse Searching_For_All_Users(Logic.ServiceReferenceData.Searching_For_All_UsersRequest request);
+        // CODEGEN: Generating message contract since element name user_Name from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Delete_User", ReplyAction="*")]
+        Logic.ServiceReferenceData.Delete_UserResponse Delete_User(Logic.ServiceReferenceData.Delete_UserRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/create", ReplyAction="*")]
-        void create();
+        // CODEGEN: Generating message contract since element name get_Users_NameResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/get_Users_Name", ReplyAction="*")]
+        Logic.ServiceReferenceData.get_Users_NameResponse get_Users_Name(Logic.ServiceReferenceData.get_Users_NameRequest request);
+        
+        // CODEGEN: Generating message contract since element name user_Name from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/get_User_Password", ReplyAction="*")]
+        Logic.ServiceReferenceData.get_User_PasswordResponse get_User_Password(Logic.ServiceReferenceData.get_User_PasswordRequest request);
+        
+        // CODEGEN: Generating message contract since element name l_Name from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Add_Line", ReplyAction="*")]
+        Logic.ServiceReferenceData.Add_LineResponse Add_Line(Logic.ServiceReferenceData.Add_LineRequest request);
+        
+        // CODEGEN: Generating message contract since element name l_id from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_Operability_Line", ReplyAction="*")]
+        Logic.ServiceReferenceData.Get_Operability_LineResponse Get_Operability_Line(Logic.ServiceReferenceData.Get_Operability_LineRequest request);
+        
+        // CODEGEN: Generating message contract since element name l_ID from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/set_Line_Operability", ReplyAction="*")]
+        Logic.ServiceReferenceData.set_Line_OperabilityResponse set_Line_Operability(Logic.ServiceReferenceData.set_Line_OperabilityRequest request);
+        
+        // CODEGEN: Generating message contract since element name l_To_Delete from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Delete_Line", ReplyAction="*")]
+        Logic.ServiceReferenceData.Delete_LineResponse Delete_Line(Logic.ServiceReferenceData.Delete_LineRequest request);
+        
+        // CODEGEN: Generating message contract since element name Get_Name_LinesResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_Name_Lines", ReplyAction="*")]
+        Logic.ServiceReferenceData.Get_Name_LinesResponse Get_Name_Lines(Logic.ServiceReferenceData.Get_Name_LinesRequest request);
+        
+        // CODEGEN: Generating message contract since element name l_ID from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_Line_Information", ReplyAction="*")]
+        Logic.ServiceReferenceData.Get_Line_InformationResponse Get_Line_Information(Logic.ServiceReferenceData.Get_Line_InformationRequest request);
+        
+        // CODEGEN: Generating message contract since element name Get_ALL_Lines_InformationResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_ALL_Lines_Information", ReplyAction="*")]
+        Logic.ServiceReferenceData.Get_ALL_Lines_InformationResponse Get_ALL_Lines_Information(Logic.ServiceReferenceData.Get_ALL_Lines_InformationRequest request);
+        
+        // CODEGEN: Generating message contract since element name s_Name from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/add_Station", ReplyAction="*")]
+        Logic.ServiceReferenceData.add_StationResponse add_Station(Logic.ServiceReferenceData.add_StationRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class Searching_For_All_UsersRequest {
+    public partial class Add_UserRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="Searching_For_All_Users", Namespace="http://tempuri.org/", Order=0)]
-        public Logic.ServiceReferenceData.Searching_For_All_UsersRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Add_User", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Add_UserRequestBody Body;
         
-        public Searching_For_All_UsersRequest() {
+        public Add_UserRequest() {
         }
         
-        public Searching_For_All_UsersRequest(Logic.ServiceReferenceData.Searching_For_All_UsersRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class Searching_For_All_UsersRequestBody {
-        
-        public Searching_For_All_UsersRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class Searching_For_All_UsersResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="Searching_For_All_UsersResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Logic.ServiceReferenceData.Searching_For_All_UsersResponseBody Body;
-        
-        public Searching_For_All_UsersResponse() {
-        }
-        
-        public Searching_For_All_UsersResponse(Logic.ServiceReferenceData.Searching_For_All_UsersResponseBody Body) {
+        public Add_UserRequest(Logic.ServiceReferenceData.Add_UserRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -83,16 +94,771 @@ namespace Logic.ServiceReferenceData {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class Searching_For_All_UsersResponseBody {
+    public partial class Add_UserRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Logic.ServiceReferenceData.ArrayOfString Searching_For_All_UsersResult;
+        public string user_Name;
         
-        public Searching_For_All_UsersResponseBody() {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string user_Password;
+        
+        public Add_UserRequestBody() {
         }
         
-        public Searching_For_All_UsersResponseBody(Logic.ServiceReferenceData.ArrayOfString Searching_For_All_UsersResult) {
-            this.Searching_For_All_UsersResult = Searching_For_All_UsersResult;
+        public Add_UserRequestBody(string user_Name, string user_Password) {
+            this.user_Name = user_Name;
+            this.user_Password = user_Password;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Add_UserResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Add_UserResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Add_UserResponseBody Body;
+        
+        public Add_UserResponse() {
+        }
+        
+        public Add_UserResponse(Logic.ServiceReferenceData.Add_UserResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Add_UserResponseBody {
+        
+        public Add_UserResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Delete_UserRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Delete_User", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Delete_UserRequestBody Body;
+        
+        public Delete_UserRequest() {
+        }
+        
+        public Delete_UserRequest(Logic.ServiceReferenceData.Delete_UserRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class Delete_UserRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string user_Name;
+        
+        public Delete_UserRequestBody() {
+        }
+        
+        public Delete_UserRequestBody(string user_Name) {
+            this.user_Name = user_Name;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Delete_UserResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Delete_UserResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Delete_UserResponseBody Body;
+        
+        public Delete_UserResponse() {
+        }
+        
+        public Delete_UserResponse(Logic.ServiceReferenceData.Delete_UserResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Delete_UserResponseBody {
+        
+        public Delete_UserResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class get_Users_NameRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="get_Users_Name", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.get_Users_NameRequestBody Body;
+        
+        public get_Users_NameRequest() {
+        }
+        
+        public get_Users_NameRequest(Logic.ServiceReferenceData.get_Users_NameRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class get_Users_NameRequestBody {
+        
+        public get_Users_NameRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class get_Users_NameResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="get_Users_NameResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.get_Users_NameResponseBody Body;
+        
+        public get_Users_NameResponse() {
+        }
+        
+        public get_Users_NameResponse(Logic.ServiceReferenceData.get_Users_NameResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class get_Users_NameResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Logic.ServiceReferenceData.ArrayOfString get_Users_NameResult;
+        
+        public get_Users_NameResponseBody() {
+        }
+        
+        public get_Users_NameResponseBody(Logic.ServiceReferenceData.ArrayOfString get_Users_NameResult) {
+            this.get_Users_NameResult = get_Users_NameResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class get_User_PasswordRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="get_User_Password", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.get_User_PasswordRequestBody Body;
+        
+        public get_User_PasswordRequest() {
+        }
+        
+        public get_User_PasswordRequest(Logic.ServiceReferenceData.get_User_PasswordRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class get_User_PasswordRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string user_Name;
+        
+        public get_User_PasswordRequestBody() {
+        }
+        
+        public get_User_PasswordRequestBody(string user_Name) {
+            this.user_Name = user_Name;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class get_User_PasswordResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="get_User_PasswordResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.get_User_PasswordResponseBody Body;
+        
+        public get_User_PasswordResponse() {
+        }
+        
+        public get_User_PasswordResponse(Logic.ServiceReferenceData.get_User_PasswordResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class get_User_PasswordResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string get_User_PasswordResult;
+        
+        public get_User_PasswordResponseBody() {
+        }
+        
+        public get_User_PasswordResponseBody(string get_User_PasswordResult) {
+            this.get_User_PasswordResult = get_User_PasswordResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Add_LineRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Add_Line", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Add_LineRequestBody Body;
+        
+        public Add_LineRequest() {
+        }
+        
+        public Add_LineRequest(Logic.ServiceReferenceData.Add_LineRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class Add_LineRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string l_Name;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public bool l_Operability;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string l_Shape;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int l_TrainsQtty;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string l_ID;
+        
+        public Add_LineRequestBody() {
+        }
+        
+        public Add_LineRequestBody(string l_Name, bool l_Operability, string l_Shape, int l_TrainsQtty, string l_ID) {
+            this.l_Name = l_Name;
+            this.l_Operability = l_Operability;
+            this.l_Shape = l_Shape;
+            this.l_TrainsQtty = l_TrainsQtty;
+            this.l_ID = l_ID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Add_LineResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Add_LineResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Add_LineResponseBody Body;
+        
+        public Add_LineResponse() {
+        }
+        
+        public Add_LineResponse(Logic.ServiceReferenceData.Add_LineResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Add_LineResponseBody {
+        
+        public Add_LineResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Get_Operability_LineRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Get_Operability_Line", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Get_Operability_LineRequestBody Body;
+        
+        public Get_Operability_LineRequest() {
+        }
+        
+        public Get_Operability_LineRequest(Logic.ServiceReferenceData.Get_Operability_LineRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class Get_Operability_LineRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string l_id;
+        
+        public Get_Operability_LineRequestBody() {
+        }
+        
+        public Get_Operability_LineRequestBody(string l_id) {
+            this.l_id = l_id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Get_Operability_LineResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Get_Operability_LineResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Get_Operability_LineResponseBody Body;
+        
+        public Get_Operability_LineResponse() {
+        }
+        
+        public Get_Operability_LineResponse(Logic.ServiceReferenceData.Get_Operability_LineResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class Get_Operability_LineResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool Get_Operability_LineResult;
+        
+        public Get_Operability_LineResponseBody() {
+        }
+        
+        public Get_Operability_LineResponseBody(bool Get_Operability_LineResult) {
+            this.Get_Operability_LineResult = Get_Operability_LineResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class set_Line_OperabilityRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="set_Line_Operability", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.set_Line_OperabilityRequestBody Body;
+        
+        public set_Line_OperabilityRequest() {
+        }
+        
+        public set_Line_OperabilityRequest(Logic.ServiceReferenceData.set_Line_OperabilityRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class set_Line_OperabilityRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string l_ID;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public bool new_Operability;
+        
+        public set_Line_OperabilityRequestBody() {
+        }
+        
+        public set_Line_OperabilityRequestBody(string l_ID, bool new_Operability) {
+            this.l_ID = l_ID;
+            this.new_Operability = new_Operability;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class set_Line_OperabilityResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="set_Line_OperabilityResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.set_Line_OperabilityResponseBody Body;
+        
+        public set_Line_OperabilityResponse() {
+        }
+        
+        public set_Line_OperabilityResponse(Logic.ServiceReferenceData.set_Line_OperabilityResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class set_Line_OperabilityResponseBody {
+        
+        public set_Line_OperabilityResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Delete_LineRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Delete_Line", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Delete_LineRequestBody Body;
+        
+        public Delete_LineRequest() {
+        }
+        
+        public Delete_LineRequest(Logic.ServiceReferenceData.Delete_LineRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class Delete_LineRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string l_To_Delete;
+        
+        public Delete_LineRequestBody() {
+        }
+        
+        public Delete_LineRequestBody(string l_To_Delete) {
+            this.l_To_Delete = l_To_Delete;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Delete_LineResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Delete_LineResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Delete_LineResponseBody Body;
+        
+        public Delete_LineResponse() {
+        }
+        
+        public Delete_LineResponse(Logic.ServiceReferenceData.Delete_LineResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Delete_LineResponseBody {
+        
+        public Delete_LineResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Get_Name_LinesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Get_Name_Lines", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Get_Name_LinesRequestBody Body;
+        
+        public Get_Name_LinesRequest() {
+        }
+        
+        public Get_Name_LinesRequest(Logic.ServiceReferenceData.Get_Name_LinesRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Get_Name_LinesRequestBody {
+        
+        public Get_Name_LinesRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Get_Name_LinesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Get_Name_LinesResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Get_Name_LinesResponseBody Body;
+        
+        public Get_Name_LinesResponse() {
+        }
+        
+        public Get_Name_LinesResponse(Logic.ServiceReferenceData.Get_Name_LinesResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class Get_Name_LinesResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Logic.ServiceReferenceData.ArrayOfString Get_Name_LinesResult;
+        
+        public Get_Name_LinesResponseBody() {
+        }
+        
+        public Get_Name_LinesResponseBody(Logic.ServiceReferenceData.ArrayOfString Get_Name_LinesResult) {
+            this.Get_Name_LinesResult = Get_Name_LinesResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Get_Line_InformationRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Get_Line_Information", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Get_Line_InformationRequestBody Body;
+        
+        public Get_Line_InformationRequest() {
+        }
+        
+        public Get_Line_InformationRequest(Logic.ServiceReferenceData.Get_Line_InformationRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class Get_Line_InformationRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string l_ID;
+        
+        public Get_Line_InformationRequestBody() {
+        }
+        
+        public Get_Line_InformationRequestBody(string l_ID) {
+            this.l_ID = l_ID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Get_Line_InformationResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Get_Line_InformationResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Get_Line_InformationResponseBody Body;
+        
+        public Get_Line_InformationResponse() {
+        }
+        
+        public Get_Line_InformationResponse(Logic.ServiceReferenceData.Get_Line_InformationResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class Get_Line_InformationResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Logic.ServiceReferenceData.ArrayOfString Get_Line_InformationResult;
+        
+        public Get_Line_InformationResponseBody() {
+        }
+        
+        public Get_Line_InformationResponseBody(Logic.ServiceReferenceData.ArrayOfString Get_Line_InformationResult) {
+            this.Get_Line_InformationResult = Get_Line_InformationResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Get_ALL_Lines_InformationRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Get_ALL_Lines_Information", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Get_ALL_Lines_InformationRequestBody Body;
+        
+        public Get_ALL_Lines_InformationRequest() {
+        }
+        
+        public Get_ALL_Lines_InformationRequest(Logic.ServiceReferenceData.Get_ALL_Lines_InformationRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Get_ALL_Lines_InformationRequestBody {
+        
+        public Get_ALL_Lines_InformationRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Get_ALL_Lines_InformationResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Get_ALL_Lines_InformationResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.Get_ALL_Lines_InformationResponseBody Body;
+        
+        public Get_ALL_Lines_InformationResponse() {
+        }
+        
+        public Get_ALL_Lines_InformationResponse(Logic.ServiceReferenceData.Get_ALL_Lines_InformationResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class Get_ALL_Lines_InformationResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Logic.ServiceReferenceData.ArrayOfString Get_ALL_Lines_InformationResult;
+        
+        public Get_ALL_Lines_InformationResponseBody() {
+        }
+        
+        public Get_ALL_Lines_InformationResponseBody(Logic.ServiceReferenceData.ArrayOfString Get_ALL_Lines_InformationResult) {
+            this.Get_ALL_Lines_InformationResult = Get_ALL_Lines_InformationResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class add_StationRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="add_Station", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.add_StationRequestBody Body;
+        
+        public add_StationRequest() {
+        }
+        
+        public add_StationRequest(Logic.ServiceReferenceData.add_StationRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class add_StationRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string s_Name;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string s_ID;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string s_Line;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string s_Operability;
+        
+        public add_StationRequestBody() {
+        }
+        
+        public add_StationRequestBody(string s_Name, string s_ID, string s_Line, string s_Operability) {
+            this.s_Name = s_Name;
+            this.s_ID = s_ID;
+            this.s_Line = s_Line;
+            this.s_Operability = s_Operability;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class add_StationResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="add_StationResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Logic.ServiceReferenceData.add_StationResponseBody Body;
+        
+        public add_StationResponse() {
+        }
+        
+        public add_StationResponse(Logic.ServiceReferenceData.add_StationResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class add_StationResponseBody {
+        
+        public add_StationResponseBody() {
         }
     }
     
@@ -123,24 +889,160 @@ namespace Logic.ServiceReferenceData {
                 base(binding, remoteAddress) {
         }
         
-        public void add() {
-            base.Channel.add();
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Logic.ServiceReferenceData.Add_UserResponse Logic.ServiceReferenceData.WebServiceDataSoap.Add_User(Logic.ServiceReferenceData.Add_UserRequest request) {
+            return base.Channel.Add_User(request);
+        }
+        
+        public void Add_User(string user_Name, string user_Password) {
+            Logic.ServiceReferenceData.Add_UserRequest inValue = new Logic.ServiceReferenceData.Add_UserRequest();
+            inValue.Body = new Logic.ServiceReferenceData.Add_UserRequestBody();
+            inValue.Body.user_Name = user_Name;
+            inValue.Body.user_Password = user_Password;
+            Logic.ServiceReferenceData.Add_UserResponse retVal = ((Logic.ServiceReferenceData.WebServiceDataSoap)(this)).Add_User(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Logic.ServiceReferenceData.Searching_For_All_UsersResponse Logic.ServiceReferenceData.WebServiceDataSoap.Searching_For_All_Users(Logic.ServiceReferenceData.Searching_For_All_UsersRequest request) {
-            return base.Channel.Searching_For_All_Users(request);
+        Logic.ServiceReferenceData.Delete_UserResponse Logic.ServiceReferenceData.WebServiceDataSoap.Delete_User(Logic.ServiceReferenceData.Delete_UserRequest request) {
+            return base.Channel.Delete_User(request);
         }
         
-        public Logic.ServiceReferenceData.ArrayOfString Searching_For_All_Users() {
-            Logic.ServiceReferenceData.Searching_For_All_UsersRequest inValue = new Logic.ServiceReferenceData.Searching_For_All_UsersRequest();
-            inValue.Body = new Logic.ServiceReferenceData.Searching_For_All_UsersRequestBody();
-            Logic.ServiceReferenceData.Searching_For_All_UsersResponse retVal = ((Logic.ServiceReferenceData.WebServiceDataSoap)(this)).Searching_For_All_Users(inValue);
-            return retVal.Body.Searching_For_All_UsersResult;
+        public void Delete_User(string user_Name) {
+            Logic.ServiceReferenceData.Delete_UserRequest inValue = new Logic.ServiceReferenceData.Delete_UserRequest();
+            inValue.Body = new Logic.ServiceReferenceData.Delete_UserRequestBody();
+            inValue.Body.user_Name = user_Name;
+            Logic.ServiceReferenceData.Delete_UserResponse retVal = ((Logic.ServiceReferenceData.WebServiceDataSoap)(this)).Delete_User(inValue);
         }
         
-        public void create() {
-            base.Channel.create();
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Logic.ServiceReferenceData.get_Users_NameResponse Logic.ServiceReferenceData.WebServiceDataSoap.get_Users_Name(Logic.ServiceReferenceData.get_Users_NameRequest request) {
+            return base.Channel.get_Users_Name(request);
+        }
+        
+        public Logic.ServiceReferenceData.ArrayOfString get_Users_Name() {
+            Logic.ServiceReferenceData.get_Users_NameRequest inValue = new Logic.ServiceReferenceData.get_Users_NameRequest();
+            inValue.Body = new Logic.ServiceReferenceData.get_Users_NameRequestBody();
+            Logic.ServiceReferenceData.get_Users_NameResponse retVal = ((Logic.ServiceReferenceData.WebServiceDataSoap)(this)).get_Users_Name(inValue);
+            return retVal.Body.get_Users_NameResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Logic.ServiceReferenceData.get_User_PasswordResponse Logic.ServiceReferenceData.WebServiceDataSoap.get_User_Password(Logic.ServiceReferenceData.get_User_PasswordRequest request) {
+            return base.Channel.get_User_Password(request);
+        }
+        
+        public string get_User_Password(string user_Name) {
+            Logic.ServiceReferenceData.get_User_PasswordRequest inValue = new Logic.ServiceReferenceData.get_User_PasswordRequest();
+            inValue.Body = new Logic.ServiceReferenceData.get_User_PasswordRequestBody();
+            inValue.Body.user_Name = user_Name;
+            Logic.ServiceReferenceData.get_User_PasswordResponse retVal = ((Logic.ServiceReferenceData.WebServiceDataSoap)(this)).get_User_Password(inValue);
+            return retVal.Body.get_User_PasswordResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Logic.ServiceReferenceData.Add_LineResponse Logic.ServiceReferenceData.WebServiceDataSoap.Add_Line(Logic.ServiceReferenceData.Add_LineRequest request) {
+            return base.Channel.Add_Line(request);
+        }
+        
+        public void Add_Line(string l_Name, bool l_Operability, string l_Shape, int l_TrainsQtty, string l_ID) {
+            Logic.ServiceReferenceData.Add_LineRequest inValue = new Logic.ServiceReferenceData.Add_LineRequest();
+            inValue.Body = new Logic.ServiceReferenceData.Add_LineRequestBody();
+            inValue.Body.l_Name = l_Name;
+            inValue.Body.l_Operability = l_Operability;
+            inValue.Body.l_Shape = l_Shape;
+            inValue.Body.l_TrainsQtty = l_TrainsQtty;
+            inValue.Body.l_ID = l_ID;
+            Logic.ServiceReferenceData.Add_LineResponse retVal = ((Logic.ServiceReferenceData.WebServiceDataSoap)(this)).Add_Line(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Logic.ServiceReferenceData.Get_Operability_LineResponse Logic.ServiceReferenceData.WebServiceDataSoap.Get_Operability_Line(Logic.ServiceReferenceData.Get_Operability_LineRequest request) {
+            return base.Channel.Get_Operability_Line(request);
+        }
+        
+        public bool Get_Operability_Line(string l_id) {
+            Logic.ServiceReferenceData.Get_Operability_LineRequest inValue = new Logic.ServiceReferenceData.Get_Operability_LineRequest();
+            inValue.Body = new Logic.ServiceReferenceData.Get_Operability_LineRequestBody();
+            inValue.Body.l_id = l_id;
+            Logic.ServiceReferenceData.Get_Operability_LineResponse retVal = ((Logic.ServiceReferenceData.WebServiceDataSoap)(this)).Get_Operability_Line(inValue);
+            return retVal.Body.Get_Operability_LineResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Logic.ServiceReferenceData.set_Line_OperabilityResponse Logic.ServiceReferenceData.WebServiceDataSoap.set_Line_Operability(Logic.ServiceReferenceData.set_Line_OperabilityRequest request) {
+            return base.Channel.set_Line_Operability(request);
+        }
+        
+        public void set_Line_Operability(string l_ID, bool new_Operability) {
+            Logic.ServiceReferenceData.set_Line_OperabilityRequest inValue = new Logic.ServiceReferenceData.set_Line_OperabilityRequest();
+            inValue.Body = new Logic.ServiceReferenceData.set_Line_OperabilityRequestBody();
+            inValue.Body.l_ID = l_ID;
+            inValue.Body.new_Operability = new_Operability;
+            Logic.ServiceReferenceData.set_Line_OperabilityResponse retVal = ((Logic.ServiceReferenceData.WebServiceDataSoap)(this)).set_Line_Operability(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Logic.ServiceReferenceData.Delete_LineResponse Logic.ServiceReferenceData.WebServiceDataSoap.Delete_Line(Logic.ServiceReferenceData.Delete_LineRequest request) {
+            return base.Channel.Delete_Line(request);
+        }
+        
+        public void Delete_Line(string l_To_Delete) {
+            Logic.ServiceReferenceData.Delete_LineRequest inValue = new Logic.ServiceReferenceData.Delete_LineRequest();
+            inValue.Body = new Logic.ServiceReferenceData.Delete_LineRequestBody();
+            inValue.Body.l_To_Delete = l_To_Delete;
+            Logic.ServiceReferenceData.Delete_LineResponse retVal = ((Logic.ServiceReferenceData.WebServiceDataSoap)(this)).Delete_Line(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Logic.ServiceReferenceData.Get_Name_LinesResponse Logic.ServiceReferenceData.WebServiceDataSoap.Get_Name_Lines(Logic.ServiceReferenceData.Get_Name_LinesRequest request) {
+            return base.Channel.Get_Name_Lines(request);
+        }
+        
+        public Logic.ServiceReferenceData.ArrayOfString Get_Name_Lines() {
+            Logic.ServiceReferenceData.Get_Name_LinesRequest inValue = new Logic.ServiceReferenceData.Get_Name_LinesRequest();
+            inValue.Body = new Logic.ServiceReferenceData.Get_Name_LinesRequestBody();
+            Logic.ServiceReferenceData.Get_Name_LinesResponse retVal = ((Logic.ServiceReferenceData.WebServiceDataSoap)(this)).Get_Name_Lines(inValue);
+            return retVal.Body.Get_Name_LinesResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Logic.ServiceReferenceData.Get_Line_InformationResponse Logic.ServiceReferenceData.WebServiceDataSoap.Get_Line_Information(Logic.ServiceReferenceData.Get_Line_InformationRequest request) {
+            return base.Channel.Get_Line_Information(request);
+        }
+        
+        public Logic.ServiceReferenceData.ArrayOfString Get_Line_Information(string l_ID) {
+            Logic.ServiceReferenceData.Get_Line_InformationRequest inValue = new Logic.ServiceReferenceData.Get_Line_InformationRequest();
+            inValue.Body = new Logic.ServiceReferenceData.Get_Line_InformationRequestBody();
+            inValue.Body.l_ID = l_ID;
+            Logic.ServiceReferenceData.Get_Line_InformationResponse retVal = ((Logic.ServiceReferenceData.WebServiceDataSoap)(this)).Get_Line_Information(inValue);
+            return retVal.Body.Get_Line_InformationResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Logic.ServiceReferenceData.Get_ALL_Lines_InformationResponse Logic.ServiceReferenceData.WebServiceDataSoap.Get_ALL_Lines_Information(Logic.ServiceReferenceData.Get_ALL_Lines_InformationRequest request) {
+            return base.Channel.Get_ALL_Lines_Information(request);
+        }
+        
+        public Logic.ServiceReferenceData.ArrayOfString Get_ALL_Lines_Information() {
+            Logic.ServiceReferenceData.Get_ALL_Lines_InformationRequest inValue = new Logic.ServiceReferenceData.Get_ALL_Lines_InformationRequest();
+            inValue.Body = new Logic.ServiceReferenceData.Get_ALL_Lines_InformationRequestBody();
+            Logic.ServiceReferenceData.Get_ALL_Lines_InformationResponse retVal = ((Logic.ServiceReferenceData.WebServiceDataSoap)(this)).Get_ALL_Lines_Information(inValue);
+            return retVal.Body.Get_ALL_Lines_InformationResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Logic.ServiceReferenceData.add_StationResponse Logic.ServiceReferenceData.WebServiceDataSoap.add_Station(Logic.ServiceReferenceData.add_StationRequest request) {
+            return base.Channel.add_Station(request);
+        }
+        
+        public void add_Station(string s_Name, string s_ID, string s_Line, string s_Operability) {
+            Logic.ServiceReferenceData.add_StationRequest inValue = new Logic.ServiceReferenceData.add_StationRequest();
+            inValue.Body = new Logic.ServiceReferenceData.add_StationRequestBody();
+            inValue.Body.s_Name = s_Name;
+            inValue.Body.s_ID = s_ID;
+            inValue.Body.s_Line = s_Line;
+            inValue.Body.s_Operability = s_Operability;
+            Logic.ServiceReferenceData.add_StationResponse retVal = ((Logic.ServiceReferenceData.WebServiceDataSoap)(this)).add_Station(inValue);
         }
     }
 }

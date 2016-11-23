@@ -2,19 +2,34 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="add">
-        <s:complexType />
-      </s:element>
-      <s:element name="addResponse">
-        <s:complexType />
-      </s:element>
-      <s:element name="Searching_For_All_Users">
-        <s:complexType />
-      </s:element>
-      <s:element name="Searching_For_All_UsersResponse">
+      <s:element name="Add_User">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Searching_For_All_UsersResult" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_UserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Delete_User">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete_UserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="get_Users_Name">
+        <s:complexType />
+      </s:element>
+      <s:element name="get_Users_NameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_Users_NameResult" type="tns:ArrayOfString" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -23,50 +38,244 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:element name="create">
+      <s:element name="get_User_Password">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_User_PasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_User_PasswordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_Line">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="l_Name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="l_Operability" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="l_Shape" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="l_TrainsQtty" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="l_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_LineResponse">
         <s:complexType />
       </s:element>
-      <s:element name="createResponse">
+      <s:element name="Get_Operability_Line">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="l_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Operability_LineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Get_Operability_LineResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="set_Line_Operability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="l_ID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="new_Operability" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="set_Line_OperabilityResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Delete_Line">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="l_To_Delete" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete_LineResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Name_Lines">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Name_LinesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Name_LinesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Line_Information">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="l_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Line_InformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Line_InformationResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_ALL_Lines_Information">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_ALL_Lines_InformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_ALL_Lines_InformationResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="add_Station">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="s_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="s_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="s_Line" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="s_Operability" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="add_StationResponse">
         <s:complexType />
       </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="addSoapIn">
-    <wsdl:part name="parameters" element="tns:add" />
+  <wsdl:message name="Add_UserSoapIn">
+    <wsdl:part name="parameters" element="tns:Add_User" />
   </wsdl:message>
-  <wsdl:message name="addSoapOut">
-    <wsdl:part name="parameters" element="tns:addResponse" />
+  <wsdl:message name="Add_UserSoapOut">
+    <wsdl:part name="parameters" element="tns:Add_UserResponse" />
   </wsdl:message>
-  <wsdl:message name="Searching_For_All_UsersSoapIn">
-    <wsdl:part name="parameters" element="tns:Searching_For_All_Users" />
+  <wsdl:message name="Delete_UserSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete_User" />
   </wsdl:message>
-  <wsdl:message name="Searching_For_All_UsersSoapOut">
-    <wsdl:part name="parameters" element="tns:Searching_For_All_UsersResponse" />
+  <wsdl:message name="Delete_UserSoapOut">
+    <wsdl:part name="parameters" element="tns:Delete_UserResponse" />
   </wsdl:message>
-  <wsdl:message name="createSoapIn">
-    <wsdl:part name="parameters" element="tns:create" />
+  <wsdl:message name="get_Users_NameSoapIn">
+    <wsdl:part name="parameters" element="tns:get_Users_Name" />
   </wsdl:message>
-  <wsdl:message name="createSoapOut">
-    <wsdl:part name="parameters" element="tns:createResponse" />
+  <wsdl:message name="get_Users_NameSoapOut">
+    <wsdl:part name="parameters" element="tns:get_Users_NameResponse" />
+  </wsdl:message>
+  <wsdl:message name="get_User_PasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:get_User_Password" />
+  </wsdl:message>
+  <wsdl:message name="get_User_PasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:get_User_PasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="Add_LineSoapIn">
+    <wsdl:part name="parameters" element="tns:Add_Line" />
+  </wsdl:message>
+  <wsdl:message name="Add_LineSoapOut">
+    <wsdl:part name="parameters" element="tns:Add_LineResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Operability_LineSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Operability_Line" />
+  </wsdl:message>
+  <wsdl:message name="Get_Operability_LineSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Operability_LineResponse" />
+  </wsdl:message>
+  <wsdl:message name="set_Line_OperabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:set_Line_Operability" />
+  </wsdl:message>
+  <wsdl:message name="set_Line_OperabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:set_Line_OperabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="Delete_LineSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete_Line" />
+  </wsdl:message>
+  <wsdl:message name="Delete_LineSoapOut">
+    <wsdl:part name="parameters" element="tns:Delete_LineResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Name_LinesSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Name_Lines" />
+  </wsdl:message>
+  <wsdl:message name="Get_Name_LinesSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Name_LinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Line_InformationSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Line_Information" />
+  </wsdl:message>
+  <wsdl:message name="Get_Line_InformationSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Line_InformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_ALL_Lines_InformationSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_ALL_Lines_Information" />
+  </wsdl:message>
+  <wsdl:message name="Get_ALL_Lines_InformationSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_ALL_Lines_InformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="add_StationSoapIn">
+    <wsdl:part name="parameters" element="tns:add_Station" />
+  </wsdl:message>
+  <wsdl:message name="add_StationSoapOut">
+    <wsdl:part name="parameters" element="tns:add_StationResponse" />
   </wsdl:message>
   <wsdl:portType name="WebServiceDataSoap">
-    <wsdl:operation name="add">
-      <wsdl:input message="tns:addSoapIn" />
-      <wsdl:output message="tns:addSoapOut" />
+    <wsdl:operation name="Add_User">
+      <wsdl:input message="tns:Add_UserSoapIn" />
+      <wsdl:output message="tns:Add_UserSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Searching_For_All_Users">
-      <wsdl:input message="tns:Searching_For_All_UsersSoapIn" />
-      <wsdl:output message="tns:Searching_For_All_UsersSoapOut" />
+    <wsdl:operation name="Delete_User">
+      <wsdl:input message="tns:Delete_UserSoapIn" />
+      <wsdl:output message="tns:Delete_UserSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="create">
-      <wsdl:input message="tns:createSoapIn" />
-      <wsdl:output message="tns:createSoapOut" />
+    <wsdl:operation name="get_Users_Name">
+      <wsdl:input message="tns:get_Users_NameSoapIn" />
+      <wsdl:output message="tns:get_Users_NameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_User_Password">
+      <wsdl:input message="tns:get_User_PasswordSoapIn" />
+      <wsdl:output message="tns:get_User_PasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_Line">
+      <wsdl:input message="tns:Add_LineSoapIn" />
+      <wsdl:output message="tns:Add_LineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Operability_Line">
+      <wsdl:input message="tns:Get_Operability_LineSoapIn" />
+      <wsdl:output message="tns:Get_Operability_LineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="set_Line_Operability">
+      <wsdl:input message="tns:set_Line_OperabilitySoapIn" />
+      <wsdl:output message="tns:set_Line_OperabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Line">
+      <wsdl:input message="tns:Delete_LineSoapIn" />
+      <wsdl:output message="tns:Delete_LineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Name_Lines">
+      <wsdl:input message="tns:Get_Name_LinesSoapIn" />
+      <wsdl:output message="tns:Get_Name_LinesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Line_Information">
+      <wsdl:input message="tns:Get_Line_InformationSoapIn" />
+      <wsdl:output message="tns:Get_Line_InformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_ALL_Lines_Information">
+      <wsdl:input message="tns:Get_ALL_Lines_InformationSoapIn" />
+      <wsdl:output message="tns:Get_ALL_Lines_InformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="add_Station">
+      <wsdl:input message="tns:add_StationSoapIn" />
+      <wsdl:output message="tns:add_StationSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceDataSoap" type="tns:WebServiceDataSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="add">
-      <soap:operation soapAction="http://tempuri.org/add" style="document" />
+    <wsdl:operation name="Add_User">
+      <soap:operation soapAction="http://tempuri.org/Add_User" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -74,8 +283,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Searching_For_All_Users">
-      <soap:operation soapAction="http://tempuri.org/Searching_For_All_Users" style="document" />
+    <wsdl:operation name="Delete_User">
+      <soap:operation soapAction="http://tempuri.org/Delete_User" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -83,8 +292,89 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="create">
-      <soap:operation soapAction="http://tempuri.org/create" style="document" />
+    <wsdl:operation name="get_Users_Name">
+      <soap:operation soapAction="http://tempuri.org/get_Users_Name" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_User_Password">
+      <soap:operation soapAction="http://tempuri.org/get_User_Password" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Line">
+      <soap:operation soapAction="http://tempuri.org/Add_Line" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Operability_Line">
+      <soap:operation soapAction="http://tempuri.org/Get_Operability_Line" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="set_Line_Operability">
+      <soap:operation soapAction="http://tempuri.org/set_Line_Operability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Line">
+      <soap:operation soapAction="http://tempuri.org/Delete_Line" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Name_Lines">
+      <soap:operation soapAction="http://tempuri.org/Get_Name_Lines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Line_Information">
+      <soap:operation soapAction="http://tempuri.org/Get_Line_Information" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_ALL_Lines_Information">
+      <soap:operation soapAction="http://tempuri.org/Get_ALL_Lines_Information" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="add_Station">
+      <soap:operation soapAction="http://tempuri.org/add_Station" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -95,8 +385,8 @@
   </wsdl:binding>
   <wsdl:binding name="WebServiceDataSoap12" type="tns:WebServiceDataSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="add">
-      <soap12:operation soapAction="http://tempuri.org/add" style="document" />
+    <wsdl:operation name="Add_User">
+      <soap12:operation soapAction="http://tempuri.org/Add_User" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -104,8 +394,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Searching_For_All_Users">
-      <soap12:operation soapAction="http://tempuri.org/Searching_For_All_Users" style="document" />
+    <wsdl:operation name="Delete_User">
+      <soap12:operation soapAction="http://tempuri.org/Delete_User" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -113,8 +403,89 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="create">
-      <soap12:operation soapAction="http://tempuri.org/create" style="document" />
+    <wsdl:operation name="get_Users_Name">
+      <soap12:operation soapAction="http://tempuri.org/get_Users_Name" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_User_Password">
+      <soap12:operation soapAction="http://tempuri.org/get_User_Password" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Line">
+      <soap12:operation soapAction="http://tempuri.org/Add_Line" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Operability_Line">
+      <soap12:operation soapAction="http://tempuri.org/Get_Operability_Line" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="set_Line_Operability">
+      <soap12:operation soapAction="http://tempuri.org/set_Line_Operability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Line">
+      <soap12:operation soapAction="http://tempuri.org/Delete_Line" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Name_Lines">
+      <soap12:operation soapAction="http://tempuri.org/Get_Name_Lines" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Line_Information">
+      <soap12:operation soapAction="http://tempuri.org/Get_Line_Information" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_ALL_Lines_Information">
+      <soap12:operation soapAction="http://tempuri.org/Get_ALL_Lines_Information" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="add_Station">
+      <soap12:operation soapAction="http://tempuri.org/add_Station" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

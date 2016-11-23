@@ -55,6 +55,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Service References\ServiceReferenceData\Logic.ServiceReferenceData.ArrayOfString1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\ServiceReferenceData\WebServiceData.disco" />
     <None Include="Service References\ServiceReferenceData\configuration91.svcinfo" />
     <None Include="Service References\ServiceReferenceData\configuration.svcinfo" />

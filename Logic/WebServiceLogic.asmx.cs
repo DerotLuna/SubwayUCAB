@@ -190,6 +190,7 @@ namespace Logic
                 serviceData.setOperabilityLine(new_Operability);
 
             ----------------------------------------------------
+
             if (!serviceData.getOperabilityLine(ID) & new_Operability)
                 serviceData.setOperabilityLine(new_Operability);
             else if (serviceData.getOperabilityLine(ID) & !new_Operability)
@@ -198,7 +199,7 @@ namespace Logic
         }
 
         [WebMethod]
-        public void openCloseStation(Station station)
+        public void openCloseStation(Station station, bool new_Operability)
         {
 
             /*
@@ -208,37 +209,53 @@ namespace Logic
                 serviceData.setOperabilityStation(new_Operability);
 
             ----------------------------------------------------
+
             if (!serviceData.getOperabilityStation(ID) & new_Operability)
                 serviceData.setOperabilityStation(new_Operability);
             else if (serviceData.getOperabilityStation(ID) & !new_Operability)
                 serviceData.setOperabilityStation(new_Operability);
             */
-
         }
 
-
-        [WebMethod]
-        public void newAdmin(Admin admin)
+        private bool searchInList(string nameToSearch, List<string> list)
         {
-            //List<string> administrators = serviceData.getAdministrators();
-            List<string> administrators = new List<string>();
             sbyte counter_Line = 0; bool approved = true;
-            while (counter_Line < administrators.Count)
+            while (counter_Line < list.Count)
             {
-                if (admin.name == administrators[counter_Line])
+                if (nameToSearch == list[counter_Line])
                 {
                     approved = false;
                     break;
                 }
                 counter_Line++;
             }
+            return approved;
+        }
+
+        [WebMethod]
+        public void newAdmin(Admin admin)
+        {
+            List<string> administrators = serviceData.get_Users_Name();
+            bool approved = searchInList(admin.name, administrators);
 
             if (admin.password.Length < 8)
                 approved = false;
             if (approved) 
-             {   
-                //serviceData.setAdmin(admin.name, admin.password);
+             {
+                serviceData.Add_User(admin.name, admin.password);
              }
+        }
+
+        [WebMethod]
+        public string verifyAdmin(Admin admin)
+        {
+            List<string> administrators = serviceData.get_Users_Name();
+            bool approved = searchInList(admin.name, administrators);
+            if (!approved)
+                return "EL NOMBRE: " + admin.name + " DE ADMINISTRADOR NO EXISTE";
+            if (admin.password == serviceData.get_User_Password(admin.name))
+                return "CLAVE CORRECTA";
+            return "CLAVE INCORRECTA";
         }
 
         [WebMethod]
@@ -289,47 +306,31 @@ namespace Logic
         }
 
         [WebMethod]
-        public void newLine(Line line)
+        public string newLine(Line line)
         {
             //cargar lista de lineas
-            //List<string> subway = serviceData.getSubway();
-            List<string> subway = new List<string>();
+            List<string> subway = serviceData.Get_Name_Lines();
 
-            sbyte counter_Line = 0; bool approved = true;
-            while (counter_Line < subway.Count)
+            if (searchInList(line.name, subway))
             {
-                if (line.name == subway[counter_Line])
-                {
-                    approved = false;
-                    break;
-                }
-                counter_Line++;
+                serviceData.Add_Line(line.name, line.operability, line.shape, line.trains, line.ID);
+                return "LINEA: " + line.name + " CREADA";
             }
-
-            if (approved)
-            {
-                //serviceData.setLine(Line.name, Line.ID, Line.operability, Line.shape);
-            }
-            //actualizar data
+            return "LINEA: " + line.name + " NO CREADA, YA EXISTE UNA LINEA CON ESE NOMBRE";
         }
 
         [WebMethod]
-        public void delete_Line(Line line)
+        public string delete_Line(Line line)
         {
-            //serviceData.deleteLine(Line.ID);
+            serviceData.Delete_Line(line.ID);
+            return "LINEA: " + line.name + " ELIMINADA";
         }
 
         [WebMethod]
-        public void delete_Station(Station station)
+        public string delete_Station(Station station)
         {
             //serviceData.deleteStation(station.ID);
+            return "ESTACION: " + station.name + " ELIMINADA";
         }
-
-        [WebMethod]
-        public void setShepeLine(string new_Shape)
-        {
-
-        }
-
     }
 }
