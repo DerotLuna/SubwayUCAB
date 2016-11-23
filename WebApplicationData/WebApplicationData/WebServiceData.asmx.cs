@@ -69,9 +69,9 @@ namespace WebApplicationData
         }
 
         [WebMethod]//borra una linea del sistema.
-        public void Delete_Line(String l_To_Delete)
+        public void Delete_Line(String id_Line_To_Delete)
         {
-            line.Delete_Line(l_To_Delete);
+            line.Delete_Line(id_Line_To_Delete);
         }
         
         [WebMethod]//devuelve el nombre de todas las lineas en el sistema 

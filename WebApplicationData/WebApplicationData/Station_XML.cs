@@ -15,6 +15,7 @@ namespace WebApplicationData
         public XmlDocument station_Doc;
         private string RootNode;
         private string station_Path;
+        private string s_Operability;
  
         public Station_XML()
         {
@@ -23,16 +24,16 @@ namespace WebApplicationData
             station_Path = base.Path_File(RootNode);
         }      
 
-        public void add_Station(string name, string ID, string line, string operability)
+        public void add_Station(string name, string ID, string line, string operability , string id_Right , string id_Left)
         {
             station_Doc.Load(station_Path);
-            XmlNode station = create_Station(name, ID, line, operability);
+            XmlNode station = create_Station(name, ID, line, operability ,id_Right ,id_Left );
             XmlNode node_Root = station_Doc.DocumentElement;
             node_Root.InsertAfter(station, node_Root.LastChild);
             station_Doc.Save(station_Path);
         }
 
-        public XmlNode create_Station(string name, string ID, string line, string operability)
+        public XmlNode create_Station(string name, string ID, string line, string operability, string id_Right, string id_Left)
         {
 
             XmlNode station = station_Doc.CreateElement("Station");
@@ -53,6 +54,13 @@ namespace WebApplicationData
             x_Line.InnerText = line;
             station.AppendChild(x_Line);
 
+            XmlElement x_IdRight = station_Doc.CreateElement("IDRight");
+            x_IdRight.InnerText = id_Right;
+            station.AppendChild(x_IdRight);
+
+            XmlElement x_IdLeft = station_Doc.CreateElement("IDLeft");
+            x_IdLeft.InnerText = id_Left;
+            station.AppendChild(x_IdLeft);
 
             return station;
         }
@@ -70,6 +78,10 @@ namespace WebApplicationData
 
             return true;
         }
+
+        /* public List<string> get_Station_Names()
+          {
+                  }*/
 
         //gets
         public string root_Node
