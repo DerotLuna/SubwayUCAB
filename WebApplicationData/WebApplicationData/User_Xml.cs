@@ -14,31 +14,28 @@ namespace WebApplicationData
 {
     public class User_Xml : Xml_Files
     {
-        private const String PATH = "c:\\Users.xml";//por ahora lo trato como una constante, pueden pasarme como parametro el lugar donde se quiere guardar el archivo
-
-        private String user_Path;
+        private string user_Path;
         public XmlDocument user_Doc;
-        public String RootNodeXml;
+        private string RootNodeXml;
+        private string user_Password;
 
-
-        public User_Xml()//metodo que crea mi archivo XML (Constructor de archivo)
+        public User_Xml()
         {
-            String RootNodeXml = "Users";//RootNodeXML es el nombre del archivo que quiero crear, ademas es el nodo principal o nodo padre. 
+            RootNodeXml = "Users";
             user_Doc = new XmlDocument();
-            user_Path = base.Path_File(RootNodeXml);
-           
+            user_Path = base.Path_File(RootNodeXml);          
         }
-        public void Add_User(String name , String password)
-        {
 
-           user_Doc.Load(PATH);
-
+        public void Add_User(string name , string password)
+        { 
+            user_Doc.Load(user_Path);
             XmlNode user = Create_User(name , password);
             XmlNode root = user_Doc.DocumentElement;
             root.InsertAfter(user, root.LastChild);
-            user_Doc.Save(PATH);
+            user_Doc.Save(user_Path);
         }
-        public XmlNode Create_User(String Name, String password)
+
+        public XmlNode Create_User(string Name, string password)
         {
             XmlNode user = user_Doc.CreateElement("User");
             //asigno a mi usuario un nombre.
@@ -46,15 +43,16 @@ namespace WebApplicationData
             userName.InnerText = Name;
             user.AppendChild(userName);
             //asigno el password a mi usuario.
-            XmlElement userPassword = user_Doc.CreateElement("UserPassword");
+            XmlElement userPassword = user_Doc.CreateElement("Password");
             userPassword.InnerText = password;
             user.AppendChild(userPassword);
             return user;
         }
-        public List<String> Searching_For_All_Users()
+
+        public List<string> Get_All_Users()
         {
             //me muestra todos los users en una lista, metodo capaz innecesario.
-            user_Doc.Load(PATH);
+            user_Doc.Load(user_Path);
 
             XmlNodeList listUsers = user_Doc.SelectNodes("Users/User");
             XmlNode aUSer;
@@ -71,24 +69,58 @@ namespace WebApplicationData
             }
             return adminInfo;    //no puedo retornar un objeto.         
         }
-        public void Delete_User(String userToDelete)
+
+        public string get_User_Password(string user_Name)
         {
-            //metodo que aun no se si sea necesario.
+            user_Doc.Load(user_Path);
+            
+            XmlNodeList users_List = user_Doc.SelectNodes("Users/User");
+            
+            foreach(XmlNode user_Node in users_List)
+            {
+                if (user_Node.FirstChild.InnerText == user_Name)
+                    user_Password = user_Node.SelectSingleNode("Password").InnerText;
+            }
+            return user_Password;
+        }
+
+        public void Delete_User(string user_Name)
+        {
+            user_Doc.Load(user_Path);
+            XmlNodeList list_Users = user_Doc.SelectNodes("Users/User");
+            XmlNode user_Node = user_Doc.DocumentElement;
+
+            foreach (XmlNode nodeToDelete in list_Users)
+            {
+                if (nodeToDelete.SelectSingleNode("Name").InnerText == user_Name)
+                {
+                    nodeToDelete.SelectSingleNode("User");
+                    XmlNode oldNode = nodeToDelete;
+                    user_Node.RemoveChild(oldNode);
+                }
+            }
+
+            user_Doc.Save(user_Path);
+
         }
 
         public override bool Xml_Exist()
         {
-            throw new NotImplementedException();
+            try
+            {
+                user_Doc.Load(user_Path);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
         }
-
-        /*  public override bool Xml_Exist()
-          {
-
-          }*/
-
-        public static string Path
+   
+        //gets
+        public string Path
         {
-            get { return PATH; }
+            get { return user_Path; }
         }
 
         public string root_Node

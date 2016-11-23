@@ -11,56 +11,45 @@ namespace WebApplicationData
 {
     public class Station_XML : Xml_Files
     {
-        private static string ROUTE = "C:\\";
-        private string root_Name;
-        private string separation = "\\";
-        private string format = ".xml";
-        private XmlDocument document;
-
-        public Station_XML(string root_Name)
+        
+        public XmlDocument station_Doc;
+        private string RootNode;
+        private string station_Path;
+ 
+        public Station_XML()
         {
-            this.root_Name = root_Name;
-            document = new XmlDocument();
-        }
-
-        public void create_XML()
-        {
-            XmlDeclaration xmlDeclaration = document.CreateXmlDeclaration("1.0", "UTF-8", null);
-            XmlNode root = document.DocumentElement;
-            document.InsertBefore(xmlDeclaration, root);
-
-            XmlNode node_Root = document.CreateElement(root_Name);
-            document.AppendChild(node_Root);
-            document.Save(ROUTE + separation + root_Name + format);
-        }
+            RootNode = "Stations";
+            station_Doc = new XmlDocument();
+            station_Path = base.Path_File(RootNode);
+        }      
 
         public void add_Station(string name, string ID, string line, string operability)
         {
-            document.Load(ROUTE + separation + root_Name + format);
+            station_Doc.Load(station_Path);
             XmlNode station = create_Station(name, ID, line, operability);
-            XmlNode node_Root = document.DocumentElement;
+            XmlNode node_Root = station_Doc.DocumentElement;
             node_Root.InsertAfter(station, node_Root.LastChild);
-            document.Save(ROUTE + separation + root_Name + format);
+            station_Doc.Save(station_Path);
         }
 
         public XmlNode create_Station(string name, string ID, string line, string operability)
         {
 
-            XmlNode station = document.CreateElement("Station");
+            XmlNode station = station_Doc.CreateElement("Station");
 
-            XmlElement x_ID = document.CreateElement("ID");
+            XmlElement x_ID = station_Doc.CreateElement("ID");
             x_ID.InnerText = ID;
             station.AppendChild(x_ID);
 
-            XmlElement x_Name = document.CreateElement("Name");
+            XmlElement x_Name = station_Doc.CreateElement("Name");
             x_Name.InnerText = name;
             station.AppendChild(x_Name);
            
-            XmlElement x_Operability = document.CreateElement("Operability");
+            XmlElement x_Operability = station_Doc.CreateElement("Operability");
             x_Operability.InnerText = operability.ToString();
             station.AppendChild(x_Operability);
 
-            XmlElement x_Line = document.CreateElement("Line");
+            XmlElement x_Line = station_Doc.CreateElement("Line");
             x_Line.InnerText = line;
             station.AppendChild(x_Line);
 
@@ -68,19 +57,24 @@ namespace WebApplicationData
             return station;
         }
 
-        public bool xml_Exist(String Path)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Set_Path(string name_File)
-        {
-            throw new NotImplementedException();
-        }
-
         public override bool Xml_Exist()
         {
-            throw new NotImplementedException();
+            try
+            {
+                station_Doc.Load(station_Path);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        //gets
+        public string root_Node
+        {
+            get { return RootNode; }
         }
     }
 }

@@ -11,12 +11,12 @@ namespace WebApplicationData
     {
         //Atributtes
         //public XmlDocument my_Xml_Document = new XmlDocument;
-        public const String extension_File = ".xml";
-        public const String separation_Path = "\\";
+        public const string extension_File = ".xml";
+        public const string separation_Path = "\\";
         public static string ROUTE = "C:";
        // public DriveInfo drive_Save;
 
-        public void Create_Xml_File(String root_Node , XmlDocument xml_Document)
+        public void Create_Xml_File(string root_Node , XmlDocument xml_Document)
         {
             
             XmlDeclaration xmlDeclaration = xml_Document.CreateXmlDeclaration("1.0", "UTF-8", null);
@@ -30,7 +30,7 @@ namespace WebApplicationData
 
         }
 
-        public String Path_File(String name_File)
+        public string Path_File(string name_File)
         {
             return ROUTE + separation_Path + name_File + extension_File;
         }
