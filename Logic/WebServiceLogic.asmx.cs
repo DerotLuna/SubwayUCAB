@@ -19,19 +19,70 @@ namespace Logic
         ServiceReferenceData.WebServiceDataSoapClient serviceData = new ServiceReferenceData.WebServiceDataSoapClient();
         List<Line> subway = new List<Line>();
         List<Station> stations = new List<Station>();
-        List<Admin> administrators = new List<Admin>();
+        List<Admin> _administrators = new List<Admin>();
         private string empty = "Empty";
         // Empty = null
 
         [WebMethod]
-        public List<string> getSubway()
+        public List<Line> getSubway()
         {
+            List<Line> subway_Return = new List<Line>();
             //pedir lineas en data
-            List<string> subway = new List<string>();
-            subway[0] = "name";
+            /*
+            List<string> subway_All = serviceData.getSubwayAll();
+            List<string> stations_All = serviceData.getStationsAll();
+            List<string> referenceStations_All = serviceData.getreferenceStationsAll();
+            fill_Subway(subway_All);
+            fill_Lines(stations_All);
+            fill_ReferenceStations(referenceStations_All);
+            */
             return subway;
         }
 
+        private void fill_Subway(List<string> subway_All)
+        {
+            sbyte counter_All = 0, counter_Lines = 0;
+            while (counter_All < subway_All.Count)
+            {
+                string name = subway_All[counter_All];
+                counter_All++;
+                string ID = subway_All[counter_All];
+                counter_All++;
+                string s_operability = subway_All[counter_All];       //convertir en bool
+                counter_All++;
+                string shape = subway_All[counter_All];
+                counter_All++;
+                string s_trains = subway_All[counter_All];           //convertir en int
+                counter_All++;
+
+                bool operability = Convert.ToBoolean(s_operability);        //revisar
+                int trains = (int)(Convert.ToSByte(s_trains));             //revisar
+
+                subway[counter_Lines] = new Line(name, ID, operability, shape, trains);
+                counter_Lines++;
+            }
+        }
+
+        private void fill_Lines(List<string> stations_All)
+        {
+            sbyte counter_All = 0;
+            while (counter_All < stations_All.Count)
+            {
+                string name = stations_All[counter_All];
+                counter_All++;
+                string ID = stations_All[counter_All];
+                counter_All++;
+                string s_operability = stations_All[counter_All];       //convertir en bool
+                counter_All++;
+                string ID_line = stations_All[counter_All];
+                counter_All++;
+
+                Line line = getLine(ID_line);
+                bool operability = Convert.ToBoolean(s_operability);        //revisar
+                Station station = new Station(name, ID, operability, line);
+                line.stations.Add(station);
+            }
+        }
         /*
         [WebMethod]
         public Station getStation(string station_Search)
@@ -105,49 +156,71 @@ namespace Logic
         }
 
         [WebMethod]
-        public void closeLine(Line line)
+        public void openCloseLine(Line line, bool new_Operability)
         {
-            //pedir lista de lineas
-            line.operability = false;
-            //actualizar data
+            /*
+            if (!line.operability & new_Operability)
+                serviceData.setOperabilityLine(new_Operability);
+            else if (line.operability & !new_Operability)
+                serviceData.setOperabilityLine(new_Operability);
+
+            ----------------------------------------------------
+            if (!serviceData.getOperabilityLine(ID) & new_Operability)
+                serviceData.setOperabilityLine(new_Operability);
+            else if (serviceData.getOperabilityLine(ID) & !new_Operability)
+                serviceData.setOperabilityLine(new_Operability);
+            */
         }
 
         [WebMethod]
-        public void closeStation(Station station)
+        public void openCloseStation(Station station)
         {
-            //pedir lista de estacionnes
-            station.operability = false;
-            //actualizar data
+
+            /*
+            if (!station.operability & new_Operability)
+                serviceData.setOperabilityStation(new_Operability);
+            else if (station.operability & !new_Operability)
+                serviceData.setOperabilityStation(new_Operability);
+
+            ----------------------------------------------------
+            if (!serviceData.getOperabilityStation(ID) & new_Operability)
+                serviceData.setOperabilityStation(new_Operability);
+            else if (serviceData.getOperabilityStation(ID) & !new_Operability)
+                serviceData.setOperabilityStation(new_Operability);
+            */
+
         }
 
-        
+
         [WebMethod]
         public void newAdmin(Admin admin)
         {
-            //cargar lista de administradores
-            //administrators =
+            //List<string> administrators = serviceData.getAdministrators();
+            List<string> administrators = new List<string>();
             sbyte counter_Line = 0; bool approved = true;
             while (counter_Line < administrators.Count)
             {
-                if (admin == administrators[counter_Line])
+                if (admin.name == administrators[counter_Line])
                 {
                     approved = false;
                     break;
                 }
                 counter_Line++;
             }
-            if (approved)
-            {
-                administrators.Add(admin);
-                //actualizar data
-            }
 
-        } 
+            if (admin.password.Length < 8)
+                approved = false;
+            if (approved) 
+             {   
+                //serviceData.setAdmin(admin.name, admin.password);
+             }
+        }
 
         [WebMethod]
         public void newStation(Station station)
         {
             //llamada a metodo para que me de las lineas
+            //List<string> stations = serviceData.getStations();
 
             stations = station.line.stations;
             int counter = 0; bool approved = true;
@@ -184,10 +257,13 @@ namespace Logic
         public void newLine(Line line)
         {
             //cargar lista de lineas
+            //List<string> subway = serviceData.getSubway();
+            List<string> subway = new List<string>();
+
             sbyte counter_Line = 0; bool approved = true;
             while (counter_Line < subway.Count)
             {
-                if (line == subway[counter_Line])
+                if (line.name == subway[counter_Line])
                 {
                     approved = false;
                     break;
@@ -195,26 +271,27 @@ namespace Logic
                 counter_Line++;
             }
 
-            if (approved) subway.Add(line);
+            if (approved)
+            {
+                //serviceData.setLine(Line.name, Line.ID, Line.operability, Line.shape);
+            }
             //actualizar data
         }
 
         [WebMethod]
         public void delete_Line(Line line)
         {
-            //cargar lista de estaciones
             line.stations = null;
             subway.Remove(line);
-            //llamada a metodo para que elimine la linea en data y a su vez elimine las estaciones
+            //serviceData.deleteLine(Line.ID);
         }
 
         [WebMethod]
         public void delete_Station(Station station)
         {
-            //cargar lista de estaciones
             stations = station.line.stations;
             stations.Remove(station);
-            //llamada a metodo que elimine la estacion en la data
+            //serviceData.deleteStation(station.ID);
         }
 
         /*

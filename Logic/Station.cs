@@ -10,18 +10,17 @@ namespace Logic
         private string s_name;
         private string s_ID;
         private bool s_operability;
+        private Line s_line;
         private Station s_right; /*Estaciones de la misma linea*/
         private Station s_left; /*Estaciones de la misma linea*/
-        private Line s_line;
         private List<Station> s_transferences = new List<Station>(); /* Estaciones de lineas de transferencia*/
-
 
         public Station()
         {
 
         }
 
-        public Station(string name, string ID, Line line, bool operability)
+        public Station(string name, string ID, bool operability, Line line)
         {
             this.s_name = name;
             this.s_ID = ID;
@@ -29,9 +28,10 @@ namespace Logic
             this.s_operability = operability;
         }
 
-        public Station(string name, Station right, Station left, Line line, bool operability, bool transference)
+        public Station(string name, string ID, Station right, Station left, Line line, bool operability)
         {
             this.s_name = name;
+            this.s_ID = ID;
             this.s_right = right;
             this.s_left = left;
             this.s_line = line;

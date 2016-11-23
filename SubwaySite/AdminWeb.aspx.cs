@@ -26,9 +26,9 @@ namespace SubwaySite
             {
                 //test.HelloWorld();
                 clean();
-                //logic = new WebService1();
+                logic = new WebServiceLogic();
                 loadAll();
-               // subway = logic.getSubway();
+                subway = logic.getSubway();
 
                 //if (subway == null) System.Diagnostics.Debug.WriteLine("Nulllllllllllllllllllllllllll");
 
