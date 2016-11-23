@@ -43,7 +43,7 @@ namespace WebApplicationData
             userName.InnerText = Name;
             user.AppendChild(userName);
             //asigno el password a mi usuario.
-            XmlElement userPassword = user_Doc.CreateElement("Password");
+            XmlElement userPassword = user_Doc.CreateElement("UserPassword");
             userPassword.InnerText = password;
             user.AppendChild(userPassword);
             return user;
@@ -78,10 +78,12 @@ namespace WebApplicationData
             
             foreach(XmlNode user_Node in users_List)
             {
-                if (user_Node.FirstChild.InnerText == user_Name)
-                    user_Password = user_Node.SelectSingleNode("Password").InnerText;
+                if (user_Node.SelectSingleNode("Name").InnerText == user_Name)
+                {
+                   this.user_Password = user_Node.SelectSingleNode("UserPassword").InnerText;
+                }
             }
-            return user_Password;
+            return this.user_Password;
         }
 
         public void Delete_User(string user_Name)
