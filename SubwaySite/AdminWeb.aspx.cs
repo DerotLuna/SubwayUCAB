@@ -1,18 +1,19 @@
-﻿using Logic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using ServiceLogic = Logic;
+
 namespace SubwaySite
 {
     public partial class AdminWeb : System.Web.UI.Page
     {
-        private WebServiceLogic logic = new WebServiceLogic();
-        private List<Line> subway;
-        ServiceReferenceLogic.WebServiceLogicSoapClient service_Logic = new ServiceReferenceLogic.WebServiceLogicSoapClient();
+        private ServiceLogic.WebServiceLogic logic = new ServiceLogic.WebServiceLogic();
+        //private WebApplicationData.WebService1 logic;
+        private List<ServiceLogic.Line> subway;
 
         protected override void OnInit(EventArgs e)
         {
@@ -26,7 +27,7 @@ namespace SubwaySite
             {
                 //test.HelloWorld();
                 clean();
-                logic = new WebServiceLogic();
+                //logic = new WebService1();
                 loadAll();
                 subway = logic.getSubway();
 
@@ -64,25 +65,9 @@ namespace SubwaySite
 
         protected void GuardarAdministradorButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                logic.newAdmin(new Admin(nombreAdministradorInput.Text, claveAdministradorInput.Text));
-            }
-            catch (NullReferenceException ex)
-            {
-
-            }
-            /*
-             * catch (EmptyNameException ex)
-             * {
-             * }
-             * catch (EmptyPasswordException ex)
-             * {
-             * }
-             * catch (NameRepeatedException ex)
-             * {
-             * }
-             */
+            ServiceLogic.Admin newAdmin;
+            newAdmin = new ServiceLogic.Admin(nombreAdministradorInput.Text, claveAdministradorInput.Text);
+            logic.newAdmin(newAdmin);
         }
 
         protected void NuevaLineaButton_Click(object sender, EventArgs e)
@@ -93,17 +78,9 @@ namespace SubwaySite
 
         protected void GuardarLineaButton_Click(object sender, EventArgs e)
         {
-            Line line = new Line();
-            line.name = NombreLineaInput.Text;
-            line.operability = true;
-
-            try
-            {
-                logic.newLine(line);
-            }
-            catch (NullReferenceException ex)
-            {
-            }
+            //ServiceLogic.Line line = new ServiceLogic.Line(NombreLineaInput.Text, createLineID(), true, "linea", 6);
+            System.Diagnostics.Debug.WriteLine(createLineID());
+            //logic.newLine(line);
         }
 
         protected void NuevaEstacionButton_Click(object sender, EventArgs e)
@@ -128,12 +105,10 @@ namespace SubwaySite
 
         protected void GuardarEstacionButton_Click(object sender, EventArgs e)
         {
-            Station station = new Station();
-           // station.s_line_name = LineaList.Text;
+            ServiceLogic.Station station = new ServiceLogic.Station();
             station.stationRight.name = estacionDerechaList.Text;
             station.stationLeft.name = estacionIzquierdaList.Text;
             station.operability = true;
-           // station.tranfer_station = null;
             //System.Console.Write(LineaList);
             //Response.Write("Holaaaaaaaaaaaaaaaaaaaaaaaa");
             //System.Diagnostics.Debug.WriteLine("Holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
@@ -171,6 +146,12 @@ namespace SubwaySite
 
         private void loadAll()
         {
+            var lines = logic.getSubway();
+            foreach (var line in lines)
+            {
+                LineaList.Items.Add(new ListItem(line.name, line.ID));
+            }
+
             /*
             estacionIzquierdaList.Items.Add(new ListItem("dinamic1"));
             estacionIzquierdaList.Items.Add(new ListItem("dinamic2"));
@@ -200,7 +181,7 @@ namespace SubwaySite
 
         protected void MotrasAdministradorButton_Click(object sender, EventArgs e)
         {
-
+            ShowAdminPanel.Visible = true;
         }
 
         protected void ShowLineButton_Click(object sender, EventArgs e)
@@ -211,6 +192,45 @@ namespace SubwaySite
         protected void ShowStationsButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        /*
+        private string createStationID(WebApplication4.Station station)
+        {
+            string ID;
+            const string firstLetter = "S";
+            List<WebApplication4.Line> lines = logic.getSubway();
+            string lineID = station.line.ID;
+
+            return ID;
+        }
+         */
+
+        private string createLineID()
+        {
+            string ID = null;
+            const string firstLetter = "L";
+            List<ServiceLogic.Line> lines = logic.getSubway();
+            string tmp;
+            if (lines.Count == 0)
+            {
+                ID = firstLetter + "01";
+                return ID;
+            }
+
+            int sizeLines = lines.Count;
+            foreach (ServiceLogic.Line ln in lines)
+            {
+                tmp = ln.name.Substring(1);
+                if (sizeLines < int.Parse(tmp))
+                {
+                    sizeLines = int.Parse(tmp);
+                }
+                
+            }
+
+            ID = firstLetter + sizeLines;
+            return ID;
         }
     }
 }

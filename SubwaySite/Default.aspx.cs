@@ -16,12 +16,12 @@ namespace SubwaySite
 
         protected void userButton_Click(object sender, EventArgs e)
         {
-            Server.Transfer("AdminLoginWeb.aspx");
+            Server.Transfer("UserWeb.aspx");
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Server.Transfer("UserWeb.aspx");
+            Server.Transfer("AdminLoginWeb.aspx");
         }
     }
 }

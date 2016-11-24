@@ -5,21 +5,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style>
+        .inlineBlock {
+            display:inline-block;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Button ID="NuevoAdministadorButton" runat="server" Text="Nuevo Administrador" OnClick="NuevoAdministadorButton_Click" />
-        <asp:Button ID="NuevaLineaButton" runat="server" Text="Nueva Linea" OnClick="NuevaLineaButton_Click" />
-        <asp:Button ID="NuevaEstacionButton" runat="server" Text="Nueva Estacion" OnClick="NuevaEstacionButton_Click" />
+        <asp:Panel runat="server" ID="ButtonPanel" Width="100%">
+            <asp:Panel ID="AdminPanel" runat="server" CssClass="inlineBlock" HorizontalAlign="Center" Width="33%">
+                <asp:Button ID="NuevoAdministadorButton" runat="server" OnClick="NuevoAdministadorButton_Click" Text="Nuevo Administrador" Width="194px" />
+                <br />
+                <asp:Button ID="BorrarAdministradorButton" runat="server" OnClick="BorrarAdministradorButton_Click" Text="Borrar Adminitrador" Width="194px" />
+                <br />
+                <asp:Button ID="MotrasAdministradorButton" runat="server" OnClick="MotrasAdministradorButton_Click" Text="Mostrar Administrador" />
+            </asp:Panel>
+            <asp:Panel ID="LinePanel" runat="server" CssClass="inlineBlock" HorizontalAlign="Center" Width="33%">
+                <asp:Button ID="NuevaLineaButton" runat="server" OnClick="NuevaLineaButton_Click" Text="Nueva Linea" Width="194px" />
+                <br />
+                <asp:Button ID="DeleteLineButton" runat="server" OnClick="DeleteLineButton_Click" Text="Borrar Linea" Width="194px" />
+                <br />
+                <asp:Button ID="ShowLineButton" runat="server" OnClick="ShowLineButton_Click" Text="Mostrar Lineas" Width="194px" />
+            </asp:Panel>
+            <asp:Panel ID="StationPanel" runat="server" CssClass="inlineBlock" HorizontalAlign="Center" Width="33%">
+                <asp:Button ID="NuevaEstacionButton" runat="server" OnClick="NuevaEstacionButton_Click" Text="Nueva Estacion" Width="194px" />
+                <br />
+                <asp:Button ID="DeleteStationButton" runat="server" OnClick="DeleteStationButton_Click" Text="Borrar Estacion" Width="194px" />
+                <br />
+                <asp:Button ID="ShowStationsButton" runat="server" OnClick="ShowStationsButton_Click" Text="Mostrar Estaciones" Width="194px" />    
+            </asp:Panel>
         <br />
-        <asp:Button ID="BorrarAdministradorButton" runat="server" OnClick="BorrarAdministradorButton_Click" Text="Borrar Adminitrador" />
-        <asp:Button ID="DeleteLineButton" runat="server" OnClick="DeleteLineButton_Click" Text="Borrar Linea" />
-        <asp:Button ID="DeleteStationButton" runat="server" OnClick="DeleteStationButton_Click" Text="Borrar Estacion" />
-        <br />
-        <asp:Button ID="MotrasAdministradorButton" runat="server" OnClick="MotrasAdministradorButton_Click" Text="Mostrar Administrador" />
-        <asp:Button ID="ShowLineButton" runat="server" OnClick="ShowLineButton_Click" Text="Mostrar Lineas" />
-        <asp:Button ID="ShowStationsButton" runat="server" OnClick="ShowStationsButton_Click" Text="Mostrar Estaciones" />
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        </asp:Panel>
         <asp:Panel ID="AdministradorForm" runat="server" Visible="false">
             <%-- <div id="AdministradorForm" style="visibility:hidden"> --%>
                 <asp:Label ID="Label1" runat="server" Text="Nombre:"></asp:Label>
@@ -93,17 +110,31 @@
             </asp:Panel>
             <br />
             <asp:Panel ID="ShowAdminPanel" runat="server" Visible="false">
-                <asp:Table ID="ShowAdminTable" runat="server">
+                <asp:Table ID="AdminTable" runat="server">
+                    <asp:TableRow runat="server" TableSection="TableHeader">
+                        <asp:TableCell runat="server">Nombre</asp:TableCell>
+                    </asp:TableRow>
                 </asp:Table>
             </asp:Panel>
             <br />
             <asp:Panel ID="ShowLinePanel" runat="server" Visible="false">
-                <asp:Table ID="ShowLineTable" runat="server" >
+                <asp:Table ID="LineTable" runat="server" >
+                    <asp:TableRow runat="server" TableSection="TableHeader">
+                        <asp:TableCell ID="NombreHeaderCell" runat="server" BorderStyle="Inset">Nombre</asp:TableCell>
+                        <asp:TableCell ID="StatusLine" runat="server" BorderStyle="Solid">Estado</asp:TableCell>
+                        <asp:TableCell runat="server" HorizontalAlign="Center">Estaciones</asp:TableCell>
+                    </asp:TableRow>
                 </asp:Table>
             </asp:Panel>
             <br />
             <asp:Panel ID="ShowStationPanel" runat="server" Visible="false">
-                <asp:Table ID="ShowStationTable" runat="server">
+                <asp:Table ID="StationTable" runat="server">
+                    <asp:TableRow runat="server" TableSection="TableHeader">
+                        <asp:TableCell runat="server">Nombre</asp:TableCell>
+                        <asp:TableCell runat="server">Linea</asp:TableCell>
+                        <asp:TableCell runat="server">Operativo</asp:TableCell>
+                        <asp:TableCell runat="server">Transferencia</asp:TableCell>
+                    </asp:TableRow>
                 </asp:Table>
             </asp:Panel>
         

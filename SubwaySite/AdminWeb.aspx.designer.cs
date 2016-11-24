@@ -22,6 +22,24 @@ namespace SubwaySite {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// ButtonPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ButtonPanel;
+        
+        /// <summary>
+        /// AdminPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel AdminPanel;
+        
+        /// <summary>
         /// NuevoAdministadorButton control.
         /// </summary>
         /// <remarks>
@@ -29,24 +47,6 @@ namespace SubwaySite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button NuevoAdministadorButton;
-        
-        /// <summary>
-        /// NuevaLineaButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NuevaLineaButton;
-        
-        /// <summary>
-        /// NuevaEstacionButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NuevaEstacionButton;
         
         /// <summary>
         /// BorrarAdministradorButton control.
@@ -58,24 +58,6 @@ namespace SubwaySite {
         protected global::System.Web.UI.WebControls.Button BorrarAdministradorButton;
         
         /// <summary>
-        /// DeleteLineButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteLineButton;
-        
-        /// <summary>
-        /// DeleteStationButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteStationButton;
-        
-        /// <summary>
         /// MotrasAdministradorButton control.
         /// </summary>
         /// <remarks>
@@ -83,6 +65,33 @@ namespace SubwaySite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button MotrasAdministradorButton;
+        
+        /// <summary>
+        /// LinePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel LinePanel;
+        
+        /// <summary>
+        /// NuevaLineaButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button NuevaLineaButton;
+        
+        /// <summary>
+        /// DeleteLineButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button DeleteLineButton;
         
         /// <summary>
         /// ShowLineButton control.
@@ -94,6 +103,33 @@ namespace SubwaySite {
         protected global::System.Web.UI.WebControls.Button ShowLineButton;
         
         /// <summary>
+        /// StationPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel StationPanel;
+        
+        /// <summary>
+        /// NuevaEstacionButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button NuevaEstacionButton;
+        
+        /// <summary>
+        /// DeleteStationButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button DeleteStationButton;
+        
+        /// <summary>
         /// ShowStationsButton control.
         /// </summary>
         /// <remarks>
@@ -101,15 +137,6 @@ namespace SubwaySite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ShowStationsButton;
-        
-        /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
         /// AdministradorForm control.
@@ -355,13 +382,13 @@ namespace SubwaySite {
         protected global::System.Web.UI.WebControls.Panel ShowAdminPanel;
         
         /// <summary>
-        /// ShowAdminTable control.
+        /// AdminTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table ShowAdminTable;
+        protected global::System.Web.UI.WebControls.Table AdminTable;
         
         /// <summary>
         /// ShowLinePanel control.
@@ -373,13 +400,31 @@ namespace SubwaySite {
         protected global::System.Web.UI.WebControls.Panel ShowLinePanel;
         
         /// <summary>
-        /// ShowLineTable control.
+        /// LineTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table ShowLineTable;
+        protected global::System.Web.UI.WebControls.Table LineTable;
+        
+        /// <summary>
+        /// NombreHeaderCell control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell NombreHeaderCell;
+        
+        /// <summary>
+        /// StatusLine control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell StatusLine;
         
         /// <summary>
         /// ShowStationPanel control.
@@ -391,12 +436,12 @@ namespace SubwaySite {
         protected global::System.Web.UI.WebControls.Panel ShowStationPanel;
         
         /// <summary>
-        /// ShowStationTable control.
+        /// StationTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table ShowStationTable;
+        protected global::System.Web.UI.WebControls.Table StationTable;
     }
 }

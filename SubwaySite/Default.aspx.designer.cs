@@ -22,6 +22,15 @@ namespace SubwaySite {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// UserAdminPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel UserAdminPanel;
+        
+        /// <summary>
         /// adminButton control.
         /// </summary>
         /// <remarks>
